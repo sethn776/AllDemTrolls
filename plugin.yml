@@ -1,0 +1,7 @@
+name: AllDemTrolls
+version: 1
+main: com.tg.troll.Trolling
+description: A(n) trolling plugin!
+commands:
+  troll:
+    description: Base command for AllDemTrolls.
