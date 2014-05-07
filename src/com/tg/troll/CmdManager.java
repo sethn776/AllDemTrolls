@@ -8,7 +8,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
+import com.tg.troll.commands.FakeOp;
 import com.tg.troll.commands.Fire;
+import com.tg.troll.commands.Rocket;
 import com.tg.troll.commands.TrollCmd;
 
 public class CmdManager implements CommandExecutor {
@@ -17,12 +19,15 @@ public class CmdManager implements CommandExecutor {
 
 	public CmdManager() {
 		cmds.add(new Fire());
+		cmds.add(new Rocket());
+		cmds.add(new FakeOp());
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd,
 			String commandLabel, String[] args) {
 		if (cmd.getName().equalsIgnoreCase("troll")) {
 			if (args.length == 0) {
+				sender.sendMessage(ChatColor.RED + "Troll Commands: ");
 				for (TrollCmd c : cmds) {
 					sender.sendMessage(ChatColor.GRAY + "/troll " + c.getName()
 							+ " " + c.getArgs() + " - " + c.getDescription());
